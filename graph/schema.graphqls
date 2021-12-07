@@ -1,0 +1,31 @@
+scalar Upload
+
+type User {
+  id: ID!
+  fullName: String!
+  email: String!
+  img_uri: String!
+  DateCreated: String!
+}
+
+type Query {
+  users: [User]!
+}
+
+input NewUser {
+  fullName: String!
+  email: String!
+  img_uri: String
+  DateCreated: String
+}
+
+input ProfileImage {
+  userId: String
+  file: Upload
+}
+
+type Mutation {
+  createUser(input: NewUser!): User!
+  uploadProfileImage(input: ProfileImage!): Boolean!
+}
+
